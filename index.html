@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="index.js"></script>
+    <link rel="stylesheet" href="indes.css">
 </head>
+
 <body>
-    
+
+    <form>
+        <fieldset>
+            <legend>Add task form</legend>
+            <input type="text" placeholder="name">
+            <textarea placeholder="description" ></textarea>
+        </fieldset>
+        <button type="submit" class="submit">Add task</button>
+
+    </form>
+    <hr>
+    <ul class="tasks">
+        <li>
+            
+            <input type="checkbox">
+            <a href="">task name</a>
+            <button>Delete</button>
+            <button>Edit</button>
+        </li>
+    </ul>
 </body>
+
 </html>
