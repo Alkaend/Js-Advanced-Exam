@@ -1,4 +1,4 @@
-
+import Task from "./task.js";
 
 class tasksManedger {
 
@@ -20,20 +20,9 @@ function addTask(event) {
 
     event.preventDefault();
 
-
     const taskText = input.value;
 
-    const taskHTML = `<li>  
-    <input type="checkbox">
-    <a href="">${taskText}</a>
-    <button>Delete</button>
-    <button>Edit</button>
-</li>`;
-
-    tasks.insertAdjacentHTML('beforeend', taskHTML);
-
-    input.value = ""
-    input.focus()
+    tasks.append(new Task(taskText,'').element);
 
 }
 
