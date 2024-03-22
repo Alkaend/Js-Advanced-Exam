@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src="index.js"></script>
+    <script defer type="module" src="index.js"></script>
     <link rel="stylesheet" href="indes.css">
 </head>
 
@@ -14,19 +14,18 @@
     <form>
         <fieldset>
             <legend>Add task form</legend>
-            <input type="text" placeholder="name">
-            <textarea placeholder="description" ></textarea>
+            <input type="text" placeholder="Текст задачи">
+            <textarea placeholder="Описание" ></textarea>
         </fieldset>
-        <button type="submit" class="submit">Add task</button>
+        <button type="submit" class="submit">Добавить задачу</button>
 
     </form>
     <hr>
     <ul class="tasks">
-        <li>
-            
+        <li>  
             <input type="checkbox">
-            <a href="">task name</a>
-            <button>Delete</button>
+            <a href="">Сходить на пробежку</a>
+            <button data-action="delete">Delete</button>
             <button>Edit</button>
         </li>
     </ul>
