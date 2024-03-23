@@ -1,12 +1,11 @@
 import Task from "./task.js";
+import TasksManager from "./tasks-manager.js";
 
-class tasksManedger {
-
-}
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const tasks = document.querySelector('.tasks');
+const tasksManager = new TasksManager(tasks);
 
 
 // Добавление задачи
@@ -22,13 +21,20 @@ function addTask(event) {
 
     const taskText = input.value;
 
-    tasks.append(new Task(taskText,'').element);
+    tasksManager.addTask(new Task(taskText,''));
+
+    console.log(tasksManager);
+
+    
 
 }
 
 function deleteTask(event){
     if (event.target.dataset.action === 'delete');
     const parentNode = event.target.closest('li');
-    parentNode.remove()
+    parentNode.remove();
+
+   
 
 }
+
