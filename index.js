@@ -4,6 +4,7 @@ import TasksManager from "./tasks-manager.js";
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
+const textArea = document.querySelector("textarea")
 const tasks = document.querySelector('.tasks');
 const tasksManager = new TasksManager(tasks);
 
@@ -19,9 +20,11 @@ function addTask(event) {
 
     event.preventDefault();
 
-    const taskText = input.value;
+    const taskName = input.value;
 
-    tasksManager.addTask(new Task(taskText,''));
+    const taskDescription  = textArea.value;
+
+    tasksManager.addTask(new Task(taskName, taskDescription));
 
     console.log(tasksManager);
 

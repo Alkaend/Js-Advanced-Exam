@@ -32,6 +32,15 @@ class Task {
         return this.#element;
     }
 
+    toJSON(){
+        return {
+            id: this.#id,
+            name :this.#name,
+            description :this.#description,
+            date: this.#date,
+            status: this.#status
+        };
+    }
 }
 
 export default Task;
