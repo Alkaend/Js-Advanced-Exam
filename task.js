@@ -6,7 +6,15 @@ class Task {
     #status = false;
     #element = null;
 
-    constructor(name, description) {
+    static fromObject(tasksManager, obj){
+        const task = new Task(tasksManager, obj.name, obj.description);
+        task.id = obj.id;
+        task.date = obj.date;
+        task.status = obj.status;
+        return task;
+    }
+
+    constructor(tasksManager, name, description) {
         this.#name = name;
         this.#description = description;
 
@@ -17,10 +25,11 @@ class Task {
 
         const nameLink = document.createElement('a');
         nameLink.textContent = this.#name;
-        nameLink.href = '';
+        nameLink.href = `./details/index.html?id=${this.#id}`;
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click',() => tasksManager.deleteTask(this));
 
         const editBtn = document.createElement('button');
         editBtn.textContent = 'Edit';
@@ -31,6 +40,40 @@ class Task {
     get element(){
         return this.#element;
     }
+
+    get id(){
+        return this.#id;
+    }
+
+    get date(){
+        return this.#date;
+    }
+
+    get status(){
+        return this.#status;
+    }
+
+    get name(){
+        return this.#name;
+    }
+
+    get description(){
+        return this.#description;
+    }
+
+    set id(newId){
+        this.#id = newId;
+        this.#element.querySelector('a').href = `./details/index.html?id=${this.#id}`;
+    }
+
+    set date(newDate){
+        this.#date = newDate;
+    }
+
+    set status(newStatus){
+        this.#status = newStatus;
+    }
+
 
     toJSON(){
         return {

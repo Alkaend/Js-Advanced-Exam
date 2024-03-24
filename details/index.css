@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+
+
+.task .task-title {
+    margin-top: 0;
+}
+
+.task .task-description {
+    margin-bottom: 5px;
+}
+
+.task .task-date,
+.task .task-status,
+.task .task-id,
+.task .task-description {
+    margin: 0;
+}

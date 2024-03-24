@@ -13,7 +13,7 @@ const tasksManager = new TasksManager(tasks);
 form.addEventListener("submit", addTask);
 
 // Удаление задачи
-tasks.addEventListener('click', deleteTask);
+
 
 
 function addTask(event) {
@@ -24,20 +24,13 @@ function addTask(event) {
 
     const taskDescription  = textArea.value;
 
-    tasksManager.addTask(new Task(taskName, taskDescription));
+    tasksManager.addTask(new Task(tasksManager, taskName, taskDescription));
 
     console.log(tasksManager);
 
-    
-
 }
 
-function deleteTask(event){
-    if (event.target.dataset.action === 'delete');
-    const parentNode = event.target.closest('li');
-    parentNode.remove();
 
-   
 
-}
+
 
