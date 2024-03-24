@@ -16,3 +16,19 @@ document.querySelector('.task-title').textContent += task.name;
 document.querySelector('.task-description').textContent += task.description;
 
 document.querySelector('.task-status').textContent += task.status;
+
+document.querySelector('.task-id').textContent += task.id;
+
+const d = new Date();
+
+let options = {
+    year:'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+};
+
+document.querySelector('.task-date').textContent += d.toLocaleString('ru-RU', options);
