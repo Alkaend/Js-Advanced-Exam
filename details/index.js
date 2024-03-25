@@ -31,4 +31,4 @@ let options = {
     hour12: false
 };
 
-document.querySelector('.task-date').textContent += d.toLocaleString('ru-RU', options);
+document.querySelector('.task-date').textContent += d.toLocaleString('ru-RU', options).replace(',', '');

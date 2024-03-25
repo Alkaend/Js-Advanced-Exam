@@ -12,9 +12,6 @@ const tasksManager = new TasksManager(tasks);
 // Добавление задачи
 form.addEventListener("submit", addTask);
 
-// Удаление задачи
-
-
 
 function addTask(event) {
 

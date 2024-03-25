@@ -18,7 +18,7 @@ class TasksManager {
         this.#tasks.push(task);
         this.#tasksListElement.append(task.element);
 
-        this.#syncWithLS();
+        this.syncWithLS();
     }
 
     deleteTask(task) {
@@ -27,10 +27,15 @@ class TasksManager {
         this.#tasks.splice(index, 1);
         task.element.remove();
 
-        this.#syncWithLS();
+        this.syncWithLS();
 
     }
-    #syncWithLS() {
+
+    
+
+
+
+    syncWithLS() {
         localStorage.setItem('tasks', JSON.stringify(this.#tasks));
 
     }

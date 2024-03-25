@@ -6,7 +6,7 @@ class Task {
     #status = false;
     #element = null;
 
-    static fromObject(tasksManager, obj){
+    static fromObject(tasksManager, obj) {
         const task = new Task(tasksManager, obj.name, obj.description);
         task.id = obj.id;
         task.date = obj.date;
@@ -22,6 +22,11 @@ class Task {
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', e => { 
+            this.#status = e.target.checked;
+            tasksManager.syncWithLS();
+         });
+
 
         const nameLink = document.createElement('a');
         nameLink.textContent = this.#name;
@@ -29,7 +34,7 @@ class Task {
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
-        deleteBtn.addEventListener('click',() => tasksManager.deleteTask(this));
+        deleteBtn.addEventListener('click', () => tasksManager.deleteTask(this));
 
         const editBtn = document.createElement('button');
         editBtn.textContent = 'Edit';
@@ -37,49 +42,50 @@ class Task {
         this.#element.append(checkbox, nameLink, deleteBtn, editBtn);
     }
 
-    get element(){
+    get element() {
         return this.#element;
     }
 
-    get id(){
+    get id() {
         return this.#id;
     }
 
-    get date(){
+    get date() {
         return this.#date;
     }
 
-    get status(){
+    get status() {
         return this.#status;
     }
 
-    get name(){
+    get name() {
         return this.#name;
     }
 
-    get description(){
+    get description() {
         return this.#description;
     }
 
-    set id(newId){
+    set id(newId) {
         this.#id = newId;
         this.#element.querySelector('a').href = `./details/index.html?id=${this.#id}`;
     }
 
-    set date(newDate){
+    set date(newDate) {
         this.#date = newDate;
     }
 
-    set status(newStatus){
+    set status(newStatus) {
         this.#status = newStatus;
+        this.#element.querySelector('input').checked = newStatus;
     }
 
 
-    toJSON(){
+    toJSON() {
         return {
             id: this.#id,
-            name :this.#name,
-            description :this.#description,
+            name: this.#name,
+            description: this.#description,
             date: this.#date,
             status: this.#status
         };
