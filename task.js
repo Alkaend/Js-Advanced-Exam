@@ -22,10 +22,10 @@ class Task {
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.addEventListener('change', e => { 
+        checkbox.addEventListener('change', e => {
             this.#status = e.target.checked;
             tasksManager.syncWithLS();
-         });
+        });
 
 
         const nameLink = document.createElement('a');
@@ -38,6 +38,10 @@ class Task {
 
         const editBtn = document.createElement('button');
         editBtn.textContent = 'Edit';
+        editBtn.addEventListener('click',  () => {
+
+            window.location.href = `./edit/index.html?id=${this.#id}`;
+        })
 
         this.#element.append(checkbox, nameLink, deleteBtn, editBtn);
     }
@@ -72,7 +76,7 @@ class Task {
     }
 
     set date(newDate) {
-        this.#date = newDate;
+       this.#date = new Date(newDate);
     }
 
     set status(newStatus) {

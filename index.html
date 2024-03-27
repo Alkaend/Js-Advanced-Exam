@@ -17,6 +17,24 @@
             <input type="text" placeholder="Текст задачи">
             <textarea placeholder="Описание" ></textarea>
         </fieldset>
+
+        <fieldset>
+            <div>Сортировка задач</div>
+            <select id="sortOption">
+                <option value="date">По дате</option>
+                <option value="name">По имени</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <div>Фильтрация задач</div>
+            <select id="filterOption">
+                <option value="all">Все</option>
+                <option value="done">Сделанные</option>
+                <option value="undone">Несделанные</option>
+            </select>
+        </fieldset>
+
         <button type="submit" class="submit">Добавить задачу</button>
 
     </form>

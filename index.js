@@ -12,6 +12,23 @@ const tasksManager = new TasksManager(tasks);
 // Добавление задачи
 form.addEventListener("submit", addTask);
 
+const sortOption = document.getElementById('sortOption');
+sortOption.addEventListener('change', () => {
+    if (sortOption.value === 'date') {
+        tasksManager.sortByDate();
+    } else if (sortOption.value === 'name') {
+        tasksManager.sortByName();
+    }
+});
+
+
+const filterOption = document.getElementById('filterOption');
+filterOption.addEventListener('change', () => {
+     
+        tasksManager.filterBy(filterOption.value);
+    
+});
+
 
 function addTask(event) {
 

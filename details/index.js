@@ -19,7 +19,7 @@ document.querySelector('.task-status').textContent += task.status;
 
 document.querySelector('.task-id').textContent += task.id;
 
-const d = new Date();
+
 
 let options = {
     year:'numeric',
@@ -31,4 +31,6 @@ let options = {
     hour12: false
 };
 
-document.querySelector('.task-date').textContent += d.toLocaleString('ru-RU', options).replace(',', '');
+document.querySelector('.task-date').textContent += new Date (task.date).toLocaleString('ru-RU', options).replace(',', '');
+
+console.log(task.date);

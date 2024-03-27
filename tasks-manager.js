@@ -31,7 +31,45 @@ class TasksManager {
 
     }
 
+    sortByDate(){
+        this.#tasks.sort((a, b) => {
+            return b.date - a.date; 
+
+            
+        });
+        this.updateTasksList(this.#tasks);
+        
+    }
+
+    sortByName() {
+        this.#tasks.sort((a, b) => {
+           return  a.name.localeCompare(b.name);
+           
+          
+
+        });
+        this.updateTasksList(this.#tasks);
+        
+    }
+
+    updateTasksList(tasks){
+        this.#tasksListElement.innerHTML ='';
+        tasks.forEach(task => this.#tasksListElement.append(task.element));
+    }
     
+    filterBy(filter){
+        const tasks = this.#tasks.filter(task => {
+            switch (filter){
+                case 'all':
+                    return true;
+                case 'done':
+                    return task.status;
+                case 'undone':
+                    return !task.status;    
+            }
+        });
+        this.updateTasksList(tasks);
+    }
 
 
 
