@@ -6,10 +6,16 @@ document.getElementById('go-home').addEventListener('click', function () {
 const queryParams = new URLSearchParams(window.location.search);
 const id = queryParams.get('id');
 
+
+
 const cachedTasks = localStorage.getItem('tasks') ?? '[]';
 const parsedTasks = JSON.parse(cachedTasks);
 
 const task = parsedTasks.find(parsedTask =>parsedTask.id === id );
+
+if (typeof task === 'undefined'){
+    window.location.href = "../eror404/index.html";
+}
 
 document.querySelector('.task-title').textContent += task.name;
 
@@ -33,4 +39,3 @@ let options = {
 
 document.querySelector('.task-date').textContent += new Date (task.date).toLocaleString('ru-RU', options).replace(',', '');
 
-console.log(task.date);

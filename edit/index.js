@@ -11,6 +11,10 @@ const parsedTasks = JSON.parse(cachedTasks);
 
 const task = parsedTasks.find(parsedTask =>parsedTask.id === id );
 
+if (typeof task === 'undefined'){
+    window.location.href = "../eror404/index.html";
+}
+
 const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
 const form = document.querySelector("form");
@@ -30,3 +34,4 @@ function saveTask (event) {
     
     window.location.href = "../index.html";
 }
+
